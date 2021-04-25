@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const p1=Promise.resolve("我会加油的");
+p1.then(
+    success=>{
+        console.log(success)
+    }
+)
+
+
+const p2=Promise.reject("我不会放弃的");
+p2.catch(
+   err=>{
+       console.log(err)
+   }
+)
+
+
+
+const p3=new Promise((resolve,reject)=>{
+        resolve("加油，加油，加油")
+}).then(
+succ=>{
+    console.log(succ)
+})
+
+
+
+/*const p4=Promise.all([p3,p1]);
+p4.then(
+    success=>{
+        console.log(success)
+    }
+).catch(
+    err=>{
+        console.log(err)
+    }
+)*/
+
+
+const p5=Promise.race([p3,p1,p2]);
+p5.then(
+    success=>{
+        console.log(success)
+    },
+    err=>{
+        console.log(err)
+    }
+)
+
+
+    </script>
+</body>
+</html>
