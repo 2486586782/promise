@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*基本方法*/
+ /* async function fn(){                              //async返回的是一个promise 
+    //return 1
+    //throw 1
+    // return Promise.resolve(1)
+   //return Promise.reject(2)
+}
+const a=fn();
+console.log(a);*/
+
+
+/*piomise成功捕获*/
+function fn(){
+  return  new Promise((resolve,reject)=>{
+        resolve(10)
+    })
+}
+
+async function fun2(){
+const value=await fn();
+console.log(value)
+}
+fun2()
+
+
+/*await的promise失败了，使用try...catch来捕获*/
+/*async function fn(){
+    throw 3
+}
+async function fn2(){
+   try {
+       const value = await fn();
+   } catch (err) {
+       console.log(err)
+   }
+}
+fn2();*/
+
+    </script>
+</body>
+</html>
